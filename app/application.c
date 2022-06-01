@@ -1,7 +1,7 @@
 #include <application.h>
 #include <bcl.h>
 
-#define COUNT 70
+#define COUNT (72)
 
 #define MODE_EFFECT 0
 #define MODE_SPEED 1
@@ -186,7 +186,6 @@ void mode_brightness(int increment)
         brightness = 255;
     }
     bc_led_strip_set_brightness(&led_strip, brightness);
-    bc_scheduler_plan_current_relative(100);
 }
 
 void encoder_event_handler(bc_module_encoder_event_t event, void *event_param)
