@@ -1,7 +1,8 @@
 #include <application.h>
 #include <twr.h>
 
-#define COUNT (72)
+#define COUNT (600)
+#define TYPE TWR_LED_STRIP_TYPE_RGB
 
 #define MODE_EFFECT 0
 #define MODE_SPEED 1
@@ -19,11 +20,11 @@ twr_scheduler_task_id_t write_task_id;
 twr_scheduler_task_id_t stroboscope_task_id;
 twr_scheduler_task_id_t snake_task_id;
 
-static uint32_t _dma_buffer[COUNT * 4 * 2]; // count * type * 2
+static uint32_t _dma_buffer[COUNT * TYPE * 2]; // count * type * 2
 
 static const twr_led_strip_buffer_t _led_strip_buffer =
     {
-        .type = TWR_LED_STRIP_TYPE_RGBW,
+        .type = TYPE,
         .count = COUNT,
         .buffer = _dma_buffer};
 
